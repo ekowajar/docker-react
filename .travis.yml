@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t ekowajar/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run ekowajar/docker-react npm run test -- --coverage
